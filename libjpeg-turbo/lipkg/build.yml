@@ -12,14 +12,15 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libjpeg-turbo
   - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
   - ./configure --prefix=/opt/bundle
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
   # remove cruft
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm {} \;
   # we don't want to ship the executables
   - rm -r $BUILDROOT/lipkg/inst_target/opt/bundle/bin
   # build package

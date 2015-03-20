@@ -13,10 +13,11 @@ before_script:
   - env | sort
   #- sudo apt-get build-dep neverball
   - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
 
-  - make DATADIR=/opt/bundle/neverball LOCALEDIR=/opt/bundle/share/locale
+  - make DATADIR=/opt/bundle/neverball LOCALEDIR=/opt/bundle/share/locale -j4
   #- make install DESTDIR=./lipkg/inst_target/
   - install -d ./lipkg/inst_target/neverball
   - install -d ./lipkg/inst_target/bin

@@ -12,6 +12,7 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libpng
   - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
   - ./configure --prefix=/opt/bundle
