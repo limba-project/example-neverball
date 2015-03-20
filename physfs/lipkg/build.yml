@@ -1,0 +1,27 @@
+# Build script for libphysfs
+
+before_script:
+  - export CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export CPPFLAGS="-D_FORTIFY_SOURCE=2"
+  - export CXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export FCFLAGS="-g -O2 -fstack-protector-strong"
+  - export FFLAGS="-g -O2 -fstack-protector-strong"
+  - export GCJFLAGS="-g -O2 -fstack-protector-strong"
+  - export LDFLAGS="-Wl,-z,relro"
+  - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  #- sudo apt-get build-dep libphysfs
+  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+
+script:
+  - mkdir -p build && cd build
+  - cmake -DCMAKE_INSTALL_PREFIX=/opt/bundle ..
+  - cd ..
+  - make -j4
+  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  - lipkgen build lipkg/
+
+after_script:
+  - make clean
+  - rm -rf $BUILDROOT/build
