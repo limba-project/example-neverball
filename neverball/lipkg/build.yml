@@ -1,0 +1,35 @@
+# Build script for Neverball
+
+before_script:
+  - export CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export CPPFLAGS="-D_FORTIFY_SOURCE=2 -DNDEBUG"
+  - export CXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export FCFLAGS="-g -O2 -fstack-protector-strong"
+  - export FFLAGS="-g -O2 -fstack-protector-strong"
+  - export GCJFLAGS="-g -O2 -fstack-protector-strong"
+  - export LDFLAGS="-Wl,-z,relro"
+  - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - env | sort
+  #- sudo apt-get build-dep neverball
+  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+
+script:
+
+  - make DATADIR=/opt/bundle/neverball LOCALEDIR=/opt/bundle/share/locale
+  #- make install DESTDIR=./lipkg/inst_target/
+  - install -d ./lipkg/inst_target/neverball
+  - install -d ./lipkg/inst_target/bin
+  - install -d ./lipkg/inst_target/share/applications
+  - install -d ./lipkg/inst_target/share/icons/hicolor/128x128/apps
+  - cp      -dpr data/*              ./lipkg/inst_target/neverball/
+  - cp      -dpr locale/             ./lipkg/inst_target/share/
+  - install dist/neverball.desktop   ./lipkg/inst_target/share/applications
+  - cp dist/neverball_128.png        ./lipkg/inst_target/share/icons/hicolor/128x128/apps
+  - install mapc                     ./lipkg/inst_target/bin
+  - install neverball                ./lipkg/inst_target/bin
+  - chmod -R 755 ./lipkg/inst_target/neverball/ # we need to fixup permissions...
+  - lipkgen build lipkg/
+
+after_script:
+  - make clean
