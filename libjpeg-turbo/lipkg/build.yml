@@ -16,12 +16,12 @@ before_script:
 script:
   - ./configure --prefix=/opt/bundle
   - make -j4
-  - make install DESTDIR=$CURDIR/lipkg/inst_target/
+  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
   # remove cruft
-  - find $CURDIR/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
-  - find $CURDIR/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
   # we don't want to ship the executables
-  - rm -r $CURDIR/lipkg/inst_target/opt/bundle/bin
+  - rm -r $BUILDROOT/lipkg/inst_target/opt/bundle/bin
   # build package
   - lipkgen build lipkg/
 
