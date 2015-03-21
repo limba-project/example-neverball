@@ -15,7 +15,7 @@ before_script:
   - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
-  - ./configure --prefix=/opt/bundle
+  - ./configure --prefix=/opt/bundle --with-jpeg8
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
   # remove cruft
