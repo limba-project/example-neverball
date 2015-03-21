@@ -47,9 +47,6 @@ echo "Creating repository..."
 rm -rf out_lirepo
 mkdir -p out_lirepo
 cd out_lirepo
-cat > .repo-config <<EOF
-GPGKey: 0xBF4DECEB
-EOF
 
 #lirepo init .
 lirepo add ../libjpeg-turbo/lipkg/*.ipk
