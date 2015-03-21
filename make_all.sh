@@ -15,6 +15,10 @@ cd physfs
 lirunpkgbuild $LRPB_ARGS
 cd ..
 
+cd SDL2
+lirunpkgbuild $LRPB_ARGS
+cd ..
+
 cd neverball
 lirunpkgbuild $LRPB_ARGS
 cd ..
@@ -34,6 +38,7 @@ EOF
 lirepo add ../libjpeg-turbo/lipkg/*.ipk
 lirepo add ../libpng/lipkg/*.ipk
 lirepo add ../physfs/lipkg/*.ipk
+lirepo add ../SDL2/lipkg/*.ipk
 lirepo add ../neverball/lipkg/*.ipk
 
 cd ..

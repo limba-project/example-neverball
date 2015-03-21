@@ -1,0 +1,35 @@
+# Build script for libpng
+
+before_script:
+  - export CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export CPPFLAGS="-D_FORTIFY_SOURCE=2"
+  - export CXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export FCFLAGS="-g -O2 -fstack-protector-strong"
+  - export FFLAGS="-g -O2 -fstack-protector-strong"
+  - export GCJFLAGS="-g -O2 -fstack-protector-strong"
+  - export LDFLAGS="-Wl,-z,relro"
+  - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  #- sudo apt-get build-dep libpng
+  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+
+script:
+  - |
+    ./configure --prefix=/opt/bundle \
+            --disable-rpath --enable-sdl-dlopen --disable-loadso \
+            --disable-nas --disable-esd --disable-arts \
+            --disable-alsa-shared --disable-pulseaudio-shared \
+            --disable-x11-shared --disable-video-directfb \
+            --enable-video-opengles \
+            --enable-video-wayland --disable-wayland-shared
+  - make -j4
+  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
+  # remove cruft
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  # build package
+  - lipkgen build lipkg/
+
+after_script:
+  - make clean distclean
