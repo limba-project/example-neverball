@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>libogg</id>
+  <metadata_license>MIT</metadata_license>
+
+  <name>LibOGG</name>
+  <summary>Ogg bitstream library</summary>
+  <description>
+    <p>
+      Libogg is a library for manipulating ogg bitstreams. It handles both making ogg bitstreams and getting packets
+      from ogg bitstreams.
+    </p>
+  </description>
+  <url type="homepage">http://xiph.org/ogg/</url>
+
+  <releases>
+    <release version="1.3.2" />
+  </releases>
+</component>
