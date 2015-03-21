@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>libvorbis</id>
+  <metadata_license>MIT</metadata_license>
+
+  <name>LibVorbis</name>
+  <summary>Vorbis General Audio Compression Codec</summary>
+  <description>
+    <p>
+       Ogg Vorbis is a fully open, non-proprietary, patent-and-royalty-free, general-purpose compressed audio format for
+       audio and music at fixed and variable bitrates from 16 to 128 kbps/channel.
+    </p>
+  </description>
+  <url type="homepage">http://www.xiph.org/vorbis/</url>
+
+  <releases>
+    <release version="1.3.4" />
+  </releases>
+</component>
