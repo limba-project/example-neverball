@@ -39,9 +39,10 @@ cd neverball
 lirunpkgbuild $LRPB_ARGS
 cd ..
 
-echo "____________________"
-echo "Creating repository..."
 echo ""
+echo "____________________"
+echo ""
+echo "Creating repository..."
 
 rm -rf out_lirepo
 mkdir -p out_lirepo
