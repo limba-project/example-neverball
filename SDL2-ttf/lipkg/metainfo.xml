@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>SDL2-ttf</id>
+  <metadata_license>MIT</metadata_license>
+
+  <name>SDL2-ttf</name>
+  <summary>TrueType Font library for Simple DirectMedia Layer 2.</summary>
+  <description>
+    <p>
+      Wrapper around FreeType 2.0 library, making possible to use TrueType fonts to render text in SDL applications.
+    </p>
+  </description>
+  <url type="homepage">http://www.libsdl.org/projects/SDL_ttf/</url>
+
+  <releases>
+    <release version="2.0.12" />
+  </releases>
+</component>
