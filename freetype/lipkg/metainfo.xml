@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>freetype</id>
+  <metadata_license>MIT</metadata_license>
+
+  <name>FreeType</name>
+  <summary>FreeType 2 font engine.</summary>
+  <description>
+    <p>
+      The FreeType project is a team of volunteers who develop free, portable and high-quality software solutions for digital
+      typography. They specifically target embedded systems and focus on bringing small, efficient and ubiquitous products.
+    </p>
+  </description>
+  <url type="homepage">http://www.freetype.org/</url>
+
+  <releases>
+    <release version="2.5.2" />
+  </releases>
+</component>
