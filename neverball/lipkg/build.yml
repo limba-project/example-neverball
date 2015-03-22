@@ -26,7 +26,7 @@ script:
   - cp      -dpr data/*              ./lipkg/inst_target/neverball/
   - cp      -dpr locale/             ./lipkg/inst_target/share/
   - install dist/neverball.desktop   ./lipkg/inst_target/share/applications
-  - cp dist/neverball_128.png        ./lipkg/inst_target/share/icons/hicolor/128x128/apps
+  - cp dist/neverball_128.png        ./lipkg/inst_target/share/icons/hicolor/128x128/apps/neverball.png
   - install mapc                     ./lipkg/inst_target/bin
   - install neverball                ./lipkg/inst_target/bin
   - chmod -R 755 ./lipkg/inst_target/neverball/ # we need to fixup permissions...
