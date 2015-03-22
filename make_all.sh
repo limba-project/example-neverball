@@ -4,43 +4,43 @@ set -e
 LRPB_ARGS="--no-chroot"
 
 cd libjpeg-turbo
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd libpng
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd physfs
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd freetype
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd SDL2
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd SDL2-ttf
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd libogg
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd libvorbis
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd libXScrnSaver
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 cd neverball
-lirunpkgbuild $LRPB_ARGS
+lipkbh build $LRPB_ARGS
 cd ..
 
 echo ""
