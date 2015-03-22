@@ -35,6 +35,10 @@ cd libvorbis
 lirunpkgbuild $LRPB_ARGS
 cd ..
 
+cd libXScrnSaver
+lirunpkgbuild $LRPB_ARGS
+cd ..
+
 cd neverball
 lirunpkgbuild $LRPB_ARGS
 cd ..
@@ -57,6 +61,7 @@ lirepo add ../SDL2/lipkg/*.ipk
 lirepo add ../SDL2-ttf/lipkg/*.ipk
 lirepo add ../libogg/lipkg/*.ipk
 lirepo add ../libvorbis/lipkg/*.ipk
+lirepo add ../libXScrnSaver/lipkg/*.ipk
 lirepo add ../neverball/lipkg/*.ipk
 
 cd ..

@@ -1,0 +1,32 @@
+# Build script for libogg
+
+before_script:
+  - export CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export CPPFLAGS="-D_FORTIFY_SOURCE=2"
+  - export CXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export FCFLAGS="-g -O2 -fstack-protector-strong"
+  - export FFLAGS="-g -O2 -fstack-protector-strong"
+  - export GCJFLAGS="-g -O2 -fstack-protector-strong"
+  - export LDFLAGS="-Wl,-z,relro"
+  - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
+  #- sudo apt-get build-dep libogg
+  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+
+script:
+  - mkdir -p build && cd build
+  - ../configure --prefix=/opt/bundle
+  - make -j2
+  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
+  - cd ..
+  # remove cruft
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  # build package
+  - lipkgen build lipkg/
+
+after_script:
+  - cd build && make clean distclean
+  - cd .. && rm -r build
+

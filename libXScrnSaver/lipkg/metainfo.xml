@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>libXScrnSaver</id>
+  <metadata_license>MIT</metadata_license>
+
+  <name>libXScrnSaver</name>
+  <summary>X11 Screen Saver extension library</summary>
+  <description>
+    <p>
+      libXss provides an X Window System client interface to the MIT-SCREEN-SAVER extension to the X protocol.
+    </p>
+  </description>
+  <url type="homepage">http://www.x.org/</url>
+
+  <releases>
+    <release version="1.2.2" />
+  </releases>
+</component>
