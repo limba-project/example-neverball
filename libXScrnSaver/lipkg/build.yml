@@ -1,4 +1,4 @@
-# Build script for libogg
+# Build script for libXScrnSaver
 
 before_script:
   - export CFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
@@ -10,7 +10,7 @@ before_script:
   - export LDFLAGS="-Wl,-z,relro"
   - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
-  #- sudo apt-get build-dep libogg
+  #- sudo apt-get build-dep libxss
   - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
   - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
