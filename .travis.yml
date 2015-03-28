@@ -1,0 +1,45 @@
+# Travis CI config for the Limba Neverball example
+
+language: c
+
+compiler:
+  - gcc
+
+before_install:
+  - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" -y
+  - sudo add-apt-repository ppa:ximion/packagekit -y
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -qq base-files software-properties-common build-essential zlib1g # workarounds for upgrade issues
+
+before_script:
+  - env | sort
+  # Limba dependencies
+  - sudo apt-get install -qq cmake intltool xmlto libglib2.0-dev uuid-dev libarchive-dev libappstream-dev libgpgme11-dev gtk-doc-tools libgirepository1.0-dev libpolkit-gobject-1-dev libcurl4-gnutls-dev
+  # Dependencies of Neverball components
+  # NOTE: We should build with exactly the versions we used to build the package, later - this is just
+  # for convenience & easy testing.
+  - sudo apt-get build-dep -qq libsdl2-ttf
+  - sudo apt-get build-dep -qq libsdl2
+  - sudo apt-get build-dep -qq libphysfs
+  - sudo apt-get build-dep -qq libxss
+  - sudo apt-get build-dep -qq libvorbis
+  - sudo apt-get build-dep -qq libogg
+  - sudo apt-get build-dep -qq libpng
+  - sudo apt-get build-dep -qq libjpeg-turbo
+  - sudo apt-get build-dep -qq freetype
+  - sudo apt-get build-dep -qq neverball
+  # For the build helper
+  - sudo apt-get install -qq python3-yaml
+
+script:
+  # Build Limba
+  - git clone --depth=8 --branch=master https://github.com/ximion/limba.git limba-dist
+  - cd limba-dist
+  - mkdir build && cd build
+  - cmake -DLIBUILD=ON ..
+  - make && sudo make install
+  - cd ../..
+  # Build Limba-Neverball
+  - ./make_all.sh
