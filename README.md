@@ -30,9 +30,11 @@ Yes, please test them! We only ship prebuilt binaries for amd64 right now, thoug
 
 3. Run ```sudo lipa trust-key BF4DECEB``` to trust the repository you just added.
 
-4. Run ```sudo lipa install neverball-1.6.0```
+4. Run ```sudo lipa refresh``` to refresh the index of available packages.
 
-5. Run Neverball from your desktop's launcher, or by typing neverball-1.6.0 in the console.
+5. Run ```sudo lipa install neverball-1.6.0``` (append "--verbose" to see what is going on, as there is no progress bar yet - and the download might take some time)
+
+6. Run Neverball from your desktop's launcher, or by typing neverball-1.6.0 in the console.
 
 Note: Every Limba command has a ```--verbose``` flag, if you want to see what's going on.
 
