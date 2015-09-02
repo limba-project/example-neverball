@@ -11,7 +11,7 @@ before_script:
   - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libsdl2
-  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - rm -rf $BUILDROOT/lipkg/target
   - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
@@ -24,10 +24,10 @@ script:
             --enable-video-opengles \
             --enable-video-wayland --disable-wayland-shared
   - make -j4
-  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
+  - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm -rf {} \;
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
+  - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
   # build package
   - lipkgen build lipkg/
 

@@ -11,18 +11,18 @@ before_script:
   - export OBJCFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libjpeg-turbo
-  - "[ -d ./lipkg/inst_target ] && rm -r ./lipkg/inst_target"
+  - rm -rf ./lipkg/target
   - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
 
 script:
   - ./configure --prefix=/opt/bundle --with-jpeg8
   - make -j4
-  - make install DESTDIR=$BUILDROOT/lipkg/inst_target/
+  - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.la" -exec rm {} \;
-  - find $BUILDROOT/lipkg/inst_target/ -name "*.a" -exec rm {} \;
+  - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm {} \;
+  - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm {} \;
   # we don't want to ship the executables
-  - rm -r $BUILDROOT/lipkg/inst_target/opt/bundle/bin
+  - rm -r $BUILDROOT/lipkg/target/opt/bundle/bin
   # build package
   - lipkgen build lipkg/
 

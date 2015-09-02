@@ -1,46 +1,46 @@
 #!/bin/sh
 set -e
 
-LRPB_ARGS="--no-chroot"
+LB_ARGS=""
 
 cd libjpeg-turbo
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd libpng
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd physfs
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd freetype
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd SDL2
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd SDL2-ttf
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd libogg
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd libvorbis
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd libXScrnSaver
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 cd neverball
-lipkbh build $LRPB_ARGS
+limba-build run $LB_ARGS
 cd ..
 
 echo ""
