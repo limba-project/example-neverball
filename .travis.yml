@@ -45,4 +45,4 @@ script:
   # generate temporary key
   - gpg --batch --gen-key tmpkey.batch
   # Build Limba-Neverball
-  - ./make_all.sh
+  - sudo ./make_all.sh

@@ -1,7 +1,12 @@
 #!/bin/sh
 set -e
 
-LB_ARGS=""
+LB_CHROOT_NAME="$1"
+if [ -z "$1" ]; then
+  LB_CHROOT_NAME="none"
+fi
+
+LB_ARGS="--chroot=$LB_CHROOT_NAME"
 
 cd libjpeg-turbo
 echo "Building libJPEG-Turbo"
