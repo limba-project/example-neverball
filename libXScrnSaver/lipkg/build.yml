@@ -12,14 +12,13 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libxss
   - rm -rf $BUILDROOT/lipkg/target
-  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+  - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
-  - mkdir -p build && cd build
-  - ../configure --prefix=/opt/bundle
-  - make -j2
-  - make install DESTDIR=$BUILDROOT/lipkg/target/
-  - cd ..
+  - mkdir -p build
+  - cd build && ../configure --prefix=/opt/bundle
+  - cd build && make -j2
+  - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
@@ -28,5 +27,4 @@ script:
 
 after_script:
   - cd build && make clean distclean
-  - cd .. && rm -r build
-
+  - rm -r build

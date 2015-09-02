@@ -13,7 +13,7 @@ before_script:
   - env | sort
   #- sudo apt-get build-dep neverball
   - rm -rf $BUILDROOT/lipkg/target
-  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+  - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
 

@@ -12,13 +12,13 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libphysfs
   - rm -rf $BUILDROOT/lipkg/target
-  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+  - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
-  - mkdir -p build && cd build
-  - cmake -DCMAKE_INSTALL_PREFIX=/opt/bundle ..
-  - make -j4
-  - make install DESTDIR=$BUILDROOT/lipkg/target/
+  - mkdir -p build
+  - cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/bundle ..
+  - cd build && make -j4
+  - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
   - cd $BUILDROOT
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
   - lipkgen build lipkg/

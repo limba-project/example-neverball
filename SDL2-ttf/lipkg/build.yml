@@ -12,9 +12,10 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep libsdl2-ttf
   - rm -rf $BUILDROOT/lipkg/target
-  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+  - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
+  - ./autogen.sh
   - ./configure --prefix=/opt/bundle
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/

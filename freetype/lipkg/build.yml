@@ -12,7 +12,7 @@ before_script:
   - export OBJCXXFLAGS="-g -O2 -fstack-protector-strong -Wformat -Werror=format-security"
   #- sudo apt-get build-dep freetype
   - rm -rf ./lipkg/target
-  - find $BUILDROOT/lipkg/ -name "*.ipk" -exec rm {} \;
+  - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
   - |
