@@ -6,15 +6,18 @@ compiler:
   - gcc
 
 before_install:
-  - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" -y
-  - sudo add-apt-repository ppa:ximion/packagekit -y
+  - sudo add-apt-repository "deb mirror://mirrors.ubuntu.com/US.txt utopic main restricted universe multiverse" -y
   - sudo apt-get update -qq
 
 install:
+  - sudo rm -f /etc/dpkg/dpkg.cfg.d/multiarch
   - sudo apt-get install -qq base-files software-properties-common build-essential zlib1g # workarounds for upgrade issues
 
 before_script:
   - env | sort
+  - uname -m && uname -r
+  - sudo add-apt-repository ppa:ximion/packagekit -y
+  - sudo apt-get update -qq
   # Limba dependencies
   - sudo apt-get install -qq cmake intltool xmlto libglib2.0-dev uuid-dev libarchive-dev libappstream-dev libgpgme11-dev gtk-doc-tools libgirepository1.0-dev libpolkit-gobject-1-dev libcurl4-gnutls-dev
   # Dependencies of Neverball components
@@ -30,16 +33,16 @@ before_script:
   - sudo apt-get build-dep -qq libjpeg-turbo
   - sudo apt-get build-dep -qq freetype
   - sudo apt-get build-dep -qq neverball
-  # For the build helper
-  - sudo apt-get install -qq python3-yaml
 
 script:
   # Build Limba
-  - git clone --depth=8 --branch=master https://github.com/ximion/limba.git limba-dist
+  - git clone --depth=4 --branch=master https://github.com/ximion/limba.git limba-dist
   - cd limba-dist
   - mkdir build && cd build
-  - cmake -DLIBUILD=ON ..
+  - cmake -DLICOMPILE=ON ..
   - make && sudo make install
   - cd ../..
+  # generate temporary key
+  - gpg --batch --gen-key tmpkey.batch
   # Build Limba-Neverball
   - ./make_all.sh
