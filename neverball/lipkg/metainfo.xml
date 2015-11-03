@@ -18,6 +18,10 @@
     </p>
   </description>
   <url type="homepage">http://neverball.org/</url>
+  <categories>
+​    <category>Game</category>
+​    <category>ArcadeGame</category>
+​  </categories>
   <screenshots>
     <screenshot type="default">
       <image>http://neverball.org/images/shots/01-neverball-easy/easy-07-01.jpg</image>

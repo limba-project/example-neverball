@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 LB_CHROOT_NAME="$1"
@@ -7,6 +7,10 @@ if [ -z "$1" ]; then
 fi
 
 LB_ARGS="--chroot=$LB_CHROOT_NAME"
+
+export LIMBA_FULLNAME="Matthias Klumpp"
+export LIMBA_EMAIL="mak@debian.org"
+export LIMBA_TARGET_REPO="master"
 
 cd libjpeg-turbo
 echo "Building libJPEG-Turbo"
@@ -63,21 +67,30 @@ echo "____________________"
 echo ""
 echo "Creating repository..."
 
+function add_to_repo {
+  for file in $1/*.ipk
+  do
+    limba-build repo-add $file
+  done
+}
+
 rm -rf out_lirepo
 mkdir -p out_lirepo
 cd out_lirepo
 
 #limba-build repo-init .
-limba-build repo-add ../libjpeg-turbo/lipkg/*.ipk
-limba-build repo-add ../libpng/lipkg/*.ipk
-limba-build repo-add ../physfs/lipkg/*.ipk
-limba-build repo-add ../freetype/lipkg/*.ipk
-limba-build repo-add ../SDL2/lipkg/*.ipk
-limba-build repo-add ../SDL2-ttf/lipkg/*.ipk
-limba-build repo-add ../libogg/lipkg/*.ipk
-limba-build repo-add ../libvorbis/lipkg/*.ipk
-limba-build repo-add ../libXScrnSaver/lipkg/*.ipk
-limba-build repo-add ../neverball/lipkg/*.ipk
+add_to_repo ../libjpeg-turbo/lipkg
+add_to_repo ../libpng/lipkg
+add_to_repo ../physfs/lipkg
+add_to_repo ../freetype/lipkg
+add_to_repo ../SDL2/lipkg
+add_to_repo ../SDL2-ttf/lipkg
+add_to_repo ../libogg/lipkg
+add_to_repo ../libvorbis/lipkg
+add_to_repo ../libXScrnSaver/lipkg
+add_to_repo ../neverball/lipkg
 
 cd ..
+chmod -R 777 out_lirepo
+
 echo "All done."
