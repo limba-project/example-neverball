@@ -15,14 +15,14 @@ before_script:
   - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
-  - ./configure --prefix=/opt/bundle --with-jpeg8
+  - ./configure --prefix=/app --with-jpeg8
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm {} \;
   # we don't want to ship the executables
-  - rm -r $BUILDROOT/lipkg/target/opt/bundle/bin
+  - rm -r $BUILDROOT/lipkg/target/app/bin
   # build package
   - lipkgen build lipkg/
 

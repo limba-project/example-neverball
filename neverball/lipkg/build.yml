@@ -17,7 +17,7 @@ before_script:
 
 script:
 
-  - make DATADIR=/opt/bundle/neverball LOCALEDIR=/opt/bundle/share/locale -j4
+  - make DATADIR=/app/neverball LOCALEDIR=/app/share/locale -j4
   #- make install DESTDIR=./lipkg/target/
   - install -d ./lipkg/target/neverball
   - install -d ./lipkg/target/bin

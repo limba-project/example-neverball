@@ -16,7 +16,7 @@ before_script:
 
 script:
   - |
-    ./configure --prefix=/opt/bundle
+    ./configure --prefix=/app
   - make -j2
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft

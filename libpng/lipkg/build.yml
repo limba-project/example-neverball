@@ -15,13 +15,13 @@ before_script:
   - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
-  - ./configure --prefix=/opt/bundle
+  - ./configure --prefix=/app
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
-  - rm $BUILDROOT/lipkg/target/opt/bundle/bin/libpng-config
+  - rm $BUILDROOT/lipkg/target/app/bin/libpng-config
   # build package
   - lipkgen build lipkg/
 

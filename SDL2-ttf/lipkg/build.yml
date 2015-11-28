@@ -16,7 +16,7 @@ before_script:
 
 script:
   - ./autogen.sh
-  - ./configure --prefix=/opt/bundle
+  - ./configure --prefix=/app
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft

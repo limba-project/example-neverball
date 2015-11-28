@@ -16,7 +16,7 @@ before_script:
 
 script:
   - mkdir -p build
-  - cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/bundle ..
+  - cd build && cmake -DCMAKE_INSTALL_PREFIX=/app ..
   - cd build && make -j4
   - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
   - cd $BUILDROOT

@@ -16,7 +16,7 @@ before_script:
 
 script:
   - |
-    ./configure --with-pic --prefix=/opt/bundle
+    ./configure --with-pic --prefix=/app
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft

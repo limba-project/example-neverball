@@ -16,7 +16,7 @@ before_script:
 
 script:
   - |
-    ./configure --prefix=/opt/bundle \
+    ./configure --prefix=/app \
             --disable-rpath --enable-sdl-dlopen --disable-loadso \
             --disable-nas --disable-esd --disable-arts \
             --disable-alsa-shared --disable-pulseaudio-shared \

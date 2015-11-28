@@ -16,7 +16,7 @@ before_script:
 
 script:
   - |
-    ./configure --disable-maintainer-mode --prefix=/opt/bundle
+    ./configure --disable-maintainer-mode --prefix=/app
   - make -j2
   - make install DESTDIR=$BUILDROOT/lipkg/target/
   # remove cruft
