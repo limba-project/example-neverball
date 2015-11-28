@@ -8,58 +8,74 @@ fi
 
 LB_ARGS="--chroot=$LB_CHROOT_NAME"
 
+LB_ARGS="$LB_ARGS --user=`id -u` --group=`id -g`"
+
 export LIMBA_FULLNAME="Matthias Klumpp"
 export LIMBA_EMAIL="mak@debian.org"
 export LIMBA_TARGET_REPO="master"
 
+function build {
+  sudo -E limba-build run $LB_ARGS
+}
+
 cd libjpeg-turbo
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building libJPEG-Turbo"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd libpng
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building libpng"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd physfs
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building PhysFS"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd freetype
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building FreeType"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd SDL2
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building SDL2"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd SDL2-ttf
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building SDL2-ttf"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd libogg
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building libogg"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd libvorbis
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building libvorbis"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd libXScrnSaver
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building libXScrnSaver"
-limba-build run $LB_ARGS
+build
 cd ..
 
 cd neverball
+find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building Neverball"
-limba-build run $LB_ARGS
+build
 cd ..
 
 echo ""
