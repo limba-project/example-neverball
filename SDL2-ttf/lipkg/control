@@ -1,3 +1,4 @@
 Format-Version: 1.0
 
+Build-Requires: SDL2.sdk
 Requires: freetype (>= 2.5)
