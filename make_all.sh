@@ -125,6 +125,6 @@ add_to_repo ../libXScrnSaver/lipkg
 add_to_repo ../neverball/lipkg
 
 cd ..
-chmod -R 777 out_lirepo
+chmod -R 0755 out_lirepo
 
 echo "All done."
