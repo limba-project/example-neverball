@@ -25,18 +25,18 @@ Yes, please test them! We only ship prebuilt binaries for amd64 right now, thoug
 1. Get Limba from [2], compile and install it (the Git master version has some quirk fixes,
    so it's recommended to use it).
 
-2. Open ```/etc/limba/sources.list``` (create file and directory if necessary) and add
+2. Open `/etc/limba/sources.list` (create file and directory if necessary) and add
    a line containing: ```http://people.freedesktop.org/~mak/stuff/neverball-lirepo/```
 
-3. Run ```sudo lipa trust-key BF4DECEB``` to trust the repository you just added.
+3. Run `sudo limba trust-key BF4DECEB` to trust the repository you just added.
 
-4. Run ```sudo lipa refresh``` to refresh the index of available packages.
+4. Run `sudo limba refresh` to refresh the index of available packages.
 
-5. Run ```sudo lipa install neverball-1.6.0``` (append "--verbose" to see what is going on, as there is no progress bar yet - and the download might take some time)
+5. Run `sudo limba install neverball-1.6.0` (append `--verbose` to see what is going on)
 
 6. Run Neverball from your desktop's launcher, or by typing neverball-1.6.0 in the console.
 
-Note: Every Limba command has a ```--verbose``` flag, if you want to see what's going on.
+Note: Every Limba command has a `--verbose` flag, if you want to see what's going on.
 
 [1]: http://people.freedesktop.org/~mak/limba/
 [2]: https://github.com/ximion/limba
