@@ -26,7 +26,10 @@ Yes, please test them! We only ship prebuilt binaries for amd64 right now, thoug
    so it's recommended to use it).
 
 2. Open `/etc/limba/sources.list` (create file and directory if necessary) and add
-   a line containing: ```http://people.freedesktop.org/~mak/stuff/neverball-lirepo/```
+   a line containing:
+   ```
+   common,devel http://people.freedesktop.org/~mak/stuff/neverball-lirepo/
+   ```
 
 3. Run `sudo limba trust-key BF4DECEB` to trust the repository you just added.
 
