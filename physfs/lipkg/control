@@ -1,1 +1,4 @@
 Format-Version: 1.0
+
+Build-Requires: libpng.sdk (>= 1.2.50)
+Requires: libpng (>= 1.2.50)
