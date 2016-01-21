@@ -17,8 +17,9 @@ before_script:
 script:
   - mkdir -p build
   - cd build && ../configure --prefix=/app
-  - cd build && make -j2
-  - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
+  - make -j2
+  - make install DESTDIR=$BUILDROOT/lipkg/target/
+  - cd $BUILDROOT
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;

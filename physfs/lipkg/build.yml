@@ -17,8 +17,8 @@ before_script:
 script:
   - mkdir -p build
   - cd build && cmake -DCMAKE_INSTALL_PREFIX=/app ..
-  - cd build && make -j4
-  - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
+  - make -j4
+  - make install DESTDIR=$BUILDROOT/lipkg/target/
   - cd $BUILDROOT
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
   - lipkgen build lipkg/ --no-signature
