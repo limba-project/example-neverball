@@ -23,7 +23,7 @@ script:
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
   - rm $BUILDROOT/lipkg/target/app/bin/libpng-config
   # build package
-  - lipkgen build lipkg/
+  - lipkgen build lipkg/ --no-signature
 
 after_script:
   - make clean distclean

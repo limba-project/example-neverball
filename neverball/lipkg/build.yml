@@ -30,7 +30,7 @@ script:
   - install mapc                     ./lipkg/target/bin
   - install neverball                ./lipkg/target/bin
   - chmod -R 755 ./lipkg/target/neverball/ # we need to fixup permissions...
-  - lipkgen build lipkg/
+  - lipkgen build lipkg/ --no-signature
 
 after_script:
   - make clean

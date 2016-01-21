@@ -21,7 +21,7 @@ script:
   - cd build && make install DESTDIR=$BUILDROOT/lipkg/target/
   - cd $BUILDROOT
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
-  - lipkgen build lipkg/
+  - lipkgen build lipkg/ --no-signature
 
 after_script:
   - cd build && make clean
