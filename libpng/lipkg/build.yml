@@ -21,7 +21,6 @@ script:
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
-  - rm $BUILDROOT/lipkg/target/app/bin/libpng-config
   # build package
   - lipkgen build lipkg/ --no-signature
 
