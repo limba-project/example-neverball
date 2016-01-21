@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-  <id>SDL2</id>
+  <id>SDL2-full</id>
   <metadata_license>MIT</metadata_license>
 
   <name>SDL2</name>
@@ -10,6 +10,12 @@
       The Simple DirectMedia Layer (SDL) is a library that allows programs portable low level access
       to a video framebuffer, audio output, mouse, and keyboard.
     </p>
+    <p>
+      This version of SDL2 is built with:
+    </p>
+    <ul>
+      <li>Wrapper for FreeType 2.0</li>
+    </ul>
   </description>
   <url type="homepage">http://www.libsdl.org/</url>
 

@@ -60,16 +60,9 @@ build
 install_all lipkg/
 cd ..
 
-cd SDL2
+cd SDL2-full
 find . -name "*.ipk*" -exec rm -f {} \;
 echo "Building SDL2"
-build
-install_all lipkg/
-cd ..
-
-cd SDL2-ttf
-find . -name "*.ipk*" -exec rm -f {} \;
-echo "Building SDL2-ttf"
 build
 install_all lipkg/
 cd ..

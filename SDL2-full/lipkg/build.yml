@@ -15,6 +15,8 @@ before_script:
   - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
+  # SDL2
+  - cd SDL2
   - |
     ./configure --prefix=/app \
             --disable-rpath --enable-sdl-dlopen --disable-loadso \
@@ -25,6 +27,15 @@ script:
             --enable-video-wayland --disable-wayland-shared
   - make -j4
   - make install DESTDIR=$BUILDROOT/lipkg/target/
+  - sudo make install
+  - cd ..
+  # SDL2-ttf
+  - cd SDL2-ttf
+  - ./autogen.sh
+  - ./configure --prefix=/app
+  - make -j4
+  - make install DESTDIR=$BUILDROOT/lipkg/target/
+  - cd ..
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
@@ -32,4 +43,9 @@ script:
   - lipkgen build lipkg/ --no-signature
 
 after_script:
+  - cd SDL2
   - make clean distclean
+  - cd ..
+  - cd SDL2-ttf
+  - make clean distclean
+  - cd ..
