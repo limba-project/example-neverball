@@ -1,3 +1,9 @@
 Format-Version: 1.0
 
-Requires: foundation:Xserver, foundation:Mesa, foundation:PulseAudio, foundation:ALSA-Lib, foundation:udev
+Build-Requires: freetype.sdk (>= 2.5)
+Requires: foundation:Xserver,
+    foundation:Mesa,
+    foundation:PulseAudio,
+    foundation:ALSA-Lib,
+    foundation:udev,
+    freetype (>= 2.5)
