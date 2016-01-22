@@ -1,3 +1,5 @@
 Format-Version: 1.0
 
-Requires: foundation:Xserver
+Build-Requires: libpng.sdk (>= 1.2.50)
+Requires: foundation:Xserver,
+    libpng (>= 1.2.50)
