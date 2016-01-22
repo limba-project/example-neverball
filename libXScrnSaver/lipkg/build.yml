@@ -15,11 +15,10 @@ before_script:
   - find $BUILDROOT/lipkg/ -name "*.ipk*" -exec rm {} \;
 
 script:
-  - mkdir -p build
-  - cd build && ../configure --prefix=/app
+  - autoconf
+  - ./configure --prefix=/app
   - make -j2
   - make install DESTDIR=$BUILDROOT/lipkg/target/
-  - cd $BUILDROOT
   # remove cruft
   - find $BUILDROOT/lipkg/target/ -name "*.la" -exec rm -rf {} \;
   - find $BUILDROOT/lipkg/target/ -name "*.a" -exec rm -rf {} \;
