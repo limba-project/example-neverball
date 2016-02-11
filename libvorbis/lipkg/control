@@ -3,3 +3,4 @@ Format-Version: 1.0
 Build-Requires: libogg.sdk (>= 1.3.2)
 SDK-Requires: libogg.sdk (>= 1.3.2)
 Requires: libogg (>= 1.3.2)
+ExtraBundlesDir: ../_bundlepool

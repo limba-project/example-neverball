@@ -7,3 +7,4 @@ Requires: foundation:Xserver,
     foundation:ALSA-Lib,
     foundation:udev,
     freetype (>= 2.5)
+ExtraBundlesDir: ../_bundlepool

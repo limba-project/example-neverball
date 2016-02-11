@@ -4,3 +4,4 @@ Build-Requires: libpng.sdk (>= 1.2.50)
 SDK-Requires: libpng.sdk (>= 1.2.50)
 Requires: foundation:Xserver,
     libpng (>= 1.2.50)
+ExtraBundlesDir: ../_bundlepool
