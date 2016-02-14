@@ -17,7 +17,7 @@ export LIMBA_TARGET_REPO="master"
 mkdir -p _bundlepool
 
 function build {
-  sudo -E limba-build run --verbose $LB_ARGS
+  sudo -E limba-build run $LB_ARGS
 }
 
 function movetopool {
